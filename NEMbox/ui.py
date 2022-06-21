@@ -13,6 +13,7 @@ import datetime
 import os
 import re
 from shutil import get_terminal_size
+import traceback
 
 from . import logger
 from .config import Config
@@ -116,7 +117,7 @@ class Ui(object):
             try:
                 self.screen.addstr(args[0], args[1], args[2].encode("utf-8"), *args[3:])
             except Exception as e:
-                log.error(e)
+                log.error(traceback.format_exc())
 
     def update_margin(self):
         # Left margin
@@ -195,7 +196,7 @@ class Ui(object):
 
         def get_lyric_time(lyric_line):
             lyric_timestap = get_timestap(lyric_line)
-            if lyric_timestap == "":
+            if lyric_timestap == "" or lyric_timestap == "99:00.00":
                 return datetime.timedelta(seconds=now_playing)
             else:
                 return (

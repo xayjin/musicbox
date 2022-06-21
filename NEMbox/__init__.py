@@ -32,7 +32,7 @@ from .const import Constant
 from .utils import create_dir
 from .utils import create_file
 
-__version__ = version("NetEase-MusicBox")
+__version__ = "0.3.1"#version("NetEase-MusicBox")
 
 
 def create_config():

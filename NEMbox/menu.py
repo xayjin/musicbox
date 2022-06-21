@@ -500,6 +500,7 @@ class Menu(object):
         countdown = self.ui.build_timing()
         if not countdown.isdigit():
             notify("The input should be digit")
+            return
 
         countdown = int(countdown)
         if countdown > 0:
